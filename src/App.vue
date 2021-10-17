@@ -4,18 +4,13 @@
 		v-loading="$store.state.loading"
 		element-loading-background="rgba(0, 0, 0, 0.3)"
 	>
-		{{ $store.state.loading }}
-		<Test />
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-import Test from '@/views/login/index.vue'
 export default {
 	name: 'App',
-	components: {
-		Test,
-	},
 	data() {
 		return {
 			loading: true,

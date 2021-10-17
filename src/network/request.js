@@ -1,4 +1,6 @@
 import axios from 'axios'
+import _ from 'lodash'
+import { Message } from 'element-ui'
 import store from '@/store'
 
 // 记录需要loading的接口，且正在请求的个数
@@ -40,11 +42,27 @@ export function request(config) {
 	instance.interceptors.response.use(
 		(response) => {
 			hideLoading()
+			console.log(response)
+			const { data } = response || {}
+			const { code, msg, resultData } = data || {}
+			if (_.isEmpty(data) || code != '0') {
+				Message({
+					message: msg,
+					type: 'warning',
+				})
+				return {
+					isError: true,
+				}
+			}
 
-			return response
+			return resultData
 		},
 		(error) => {
 			hideLoading()
+			Message({
+				message: '出错啦',
+				type: 'warning',
+			})
 			return Promise.reject(error)
 		}
 	)

@@ -23,9 +23,10 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 import { getUserInfo } from '@/network/api.js'
 export default {
-	name: 'Test',
+	name: 'Login',
 	data() {
 		return {
 			user: '',
@@ -34,10 +35,12 @@ export default {
 	},
 	methods: {
 		handleLogin() {
-			console.log(this.$store.state.loading)
 			getUserInfo({ user: this.user, password: this.password }).then(
 				(res) => {
 					console.log(res)
+					const { token } = res || {}
+					Cookies.set('token', token)
+					this.$router.push('/project/home')
 				}
 			)
 		},
