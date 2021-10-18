@@ -18,7 +18,8 @@
     "style-resources-loader": "^1.4.1",
     "vue": "^2.6.11",
     "vue-cli-plugin-style-resources-loader": "^0.1.5",
-    "vue-router": "^3.5.2"
+    "vue-router": "^3.5.2",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
