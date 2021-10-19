@@ -10,7 +10,7 @@
 		</div>
 		<div class="row">
 			<span class="lable">
-				密码
+				密码aaaaaaaaaaa
 			</span>
 			<span class="value">
 				<el-input type="password" class="input" v-model="password" />
